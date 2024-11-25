@@ -1,0 +1,16 @@
+Abandoned city asset pack includes a FULL scene with over 100 prefabs, including: city props, industrial buildings, houses (exterior only), roads, church, barrels, plants, trees, decorative elements and others. <br>
+The scene can be used in your post-apocalyptic, horror, action and adventure games. <br>
+Note: The water shown in the video and images is not included in this pack, but it can be easily added from Unity Standard Assets (water pro day time). <br>
+<br>
+The complete scene shown in the video and images is included in this pack and it can be used as a starting point in your games and 3D projects. To ensure a similar light setup as the one shown in the video please download and import the Post Processing stack (Package Manager -> Unity Registry), use the provided Post Processing Files and set your project settings from Gama to Linear. If you need additional help with the setup please contact us.<br>
+<br>
+For any asset related questions or concerns, please feel free to contact us via email: info@dexsoft-games.com, we are happy to help!<br>
+<br>
+Technical details:<br>
+Albedo, Normal, Metallic, Gloss (in alpha channel of Metallic Map) and Ambient Occlusion maps are included <br>
+Prefabs have up to 3 LOD stages <br>
+Textures up to 2048 * 2048 px <br>
+Number of Textures: 397 (plus terrain and sky textures)<br>
+Number of Materials: 165  <br>
+Number of Meshes: 152 <br>
+Number of Prefabs: 124
