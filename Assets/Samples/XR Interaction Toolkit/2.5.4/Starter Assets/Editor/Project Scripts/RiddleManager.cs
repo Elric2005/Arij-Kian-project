@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[System.Serializable]  // Make this class visible in the Inspector
+public class Riddle
+{
+    public string riddleText;
+    public GameObject answerObject;
+    public string hint;
+}
 public class RiddleManager : MonoBehaviour
 {
     public List<Riddle> riddles;
@@ -24,6 +32,11 @@ public class RiddleManager : MonoBehaviour
         ShowRiddle(2);
         
     }
+
+//     public void Update_game(int playerID)
+// {
+//     Debug.Log("Updating game for player " + playerID);
+// }
       public void ShowRiddle(int playerID)
     {
         if (currentRiddleIndex[playerID] < riddles.Count)
@@ -65,7 +78,7 @@ public class RiddleManager : MonoBehaviour
             }
         }
     }
-
+    
     bool IsCorrect(GameObject playerPointedObject, GameObject correctAnswerObject)
     {
         return playerPointedObject.CompareTag(correctAnswerObject.tag);
