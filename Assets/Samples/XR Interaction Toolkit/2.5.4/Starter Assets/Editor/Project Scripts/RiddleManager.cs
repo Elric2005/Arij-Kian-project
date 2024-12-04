@@ -10,6 +10,8 @@ public class Riddle
     public GameObject answerObject;
     public string hint;
 }
+
+
 public class RiddleManager : MonoBehaviour
 {
     public List<Riddle> riddles;
@@ -33,10 +35,9 @@ public class RiddleManager : MonoBehaviour
         
     }
 
-//     public void Update_game(int playerID)
-// {
-//     Debug.Log("Updating game for player " + playerID);
-// }
+// This method is called when a player answers a riddle correctly
+   
+
       public void ShowRiddle(int playerID)
     {
         if (currentRiddleIndex[playerID] < riddles.Count)
