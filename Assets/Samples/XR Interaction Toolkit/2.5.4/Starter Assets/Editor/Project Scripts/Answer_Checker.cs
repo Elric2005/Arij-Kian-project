@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Answer_Checker : MonoBehaviour
 {
     private Camera playerCamera;
     private RiddleManager riddleManager;
