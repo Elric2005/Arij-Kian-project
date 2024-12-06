@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public 
 
     public int player1Progress = 0;
     public int player2Progress = 0;
@@ -16,28 +17,28 @@ public class GameManager : MonoBehaviour
 
     private RiddleManager riddleManager;
 
-    // Start is called before the first frame update
+    
     public void Start()
     {
-        SpawnPlayers();  // Spawn the players at their designated spawn points
-        riddleManager = FindObjectOfType<RiddleManager>();  // Find the RiddleManager in the scene
+        SpawnPlayers();  
+        riddleManager = FindObjectOfType<RiddleManager>();  
 
         // Show the riddles for both players
-        riddleManager.ShowRiddle(1); // Show riddle for Player 1
-        riddleManager.ShowRiddle(2); // Show riddle for Player 2
+        riddleManager.InitializeRiddles(allRiddles[0])); 
+        riddleManager.InitializeRiddles(allRiddles[3]));
     }
 
-    // This method is called when a player answers a riddle correctly
-    public void Update_game(int playerID)
+    
+    public void CorrectRiddleAnswered(int playerID)
     {
         if (playerID == 1)
         {
-            player1Progress++;  // Increase Player 1's progress
+            player1Progress++;  
             Fountain.Instance.UpdateWaterLevel(player1Progress, riddleManager.riddles.Count, playerID);
         }
         else if (playerID == 2)
         {
-            player2Progress++;  // Increase Player 2's progress
+            player2Progress++; 
             Fountain.Instance.UpdateWaterLevel(player2Progress, riddleManager.riddles.Count, playerID);
         }
     }
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Player 1 prefab or spawn point is not assigned!");
+            Debug.LogError("Player 1 spawn point is not assigned");
         }
 
         if (player2Prefab != null && player2SpawnPoint != null)
@@ -62,8 +63,15 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Player 2 prefab or spawn point is not assigned!");
+            Debug.LogError("Player 2 spawn point is not assigned");
         }
     }
+    if (player1progress == 4) && (player2progress == 4) {
+    SceneManager.LoadScene("Lush Forest");
+}    
+
+
+
+
 }
 

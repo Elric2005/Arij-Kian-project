@@ -2,103 +2,140 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[System.Serializable]  // Make this class visible in the Inspector
-public class Riddle
-{
-    public string riddleText;
-    public GameObject answerObject;
-    public string hint;
-}
-
-
 public class RiddleManager : MonoBehaviour
 {
-    public List<Riddle> riddles;
-    public TextMesh player1RiddleTextUI;
-    public TextMesh player2RiddleTextUI;
-    public TextMesh player1HintTextUI;
-    public TextMesh player2HintTextUI;
+    // UI Elements for displaying the current riddle
+    public TextMeshProUGUI riddleText;
 
-    private Dictionary<int, int> currentRiddleIndex = new Dictionary<int, int>();
-    private Dictionary<int, int> attemptCount = new Dictionary<int, int>();
-    // Start is called before the first frame update
-    void Start()
+    // Array of riddles for both players
+    private Riddle[] allRiddles;
+
+    // Assigned riddles for this player
+    private Riddle[] assigned_riddles;
+    private Riddle current_riddle;
+
+    public GameManager gameManager;
+    public int playerId;
+    private int currentRiddleIndex = 0;
+
+    [System.Serializable]
+    public class Riddle
     {
-        currentRiddleIndex[1] = 0;
-        currentRiddleIndex[2] = 0;
-        attemptCount[1] = 0;
-        attemptCount[2] = 0;
-
-        ShowRiddle(1);
-        ShowRiddle(2);
-        
+        public string riddleText;
+        public GameObject answerObject;
     }
 
-// This method is called when a player answers a riddle correctly
-   
 
-      public void ShowRiddle(int playerID)
+    private void Start()
     {
-        if (currentRiddleIndex[playerID] < riddles.Count)
+        allRiddles = new Riddle[8];
+
+        allRiddles[0] = new Riddle
         {
-            if (playerID == 1)
+            riddleText = "I carry the mark of danger, and my contents can bring decay,\nSealed tight to keep poison at bay, in my metal casing I lay.",
+            answerObject = GameObject.Find("biohazard barrel")
+        };
+        allRiddles[1] = new Riddle
+        {
+            riddleText = "Once I stood tall, but now I am scattered across the ground,\nCrumpled remains of what used to be, all that's left after a structure came down.",
+            answerObject = GameObject.Find("rubble")
+        };
+        allRiddles[2] = new Riddle
+        {
+            riddleText = "Left out in the rain, my skin is now rough and orange-red,\nI hold nothing but memories of better days, slowly wasting away instead.",
+            answerObject = GameObject.Find("rusty_barrel")
+        };
+        allRiddles[3] = new Riddle
+        {
+            riddleText = "Once I reached for the sky, now I rest upon the forest floor,\nA bridge for insects and a seat for wanderers, my growing days are no more.",
+            answerObject = GameObject.Find("tree_trunk")
+        };
+        allRiddles[4] = new Riddle
+        {
+            riddleText = "Empty casings that once held power, now left behind after the thunder,\nSilent and cold, I am the remains of what tore the world asunder.",
+            answerObject = GameObject.Find("missile_shells")
+        };
+
+
+        allRiddles[5] = new Riddle
+        {
+            riddleText = "My branches reach out in twisted silence, but my leaves are long gone,\nStanding brittle and lifeless, a ghost of the vibrant life I once shone.",
+            answerObject = GameObject.Find("dead_tree")
+        };
+            allRiddles[6] = new Riddle
             {
-                player1RiddleTextUI.text = riddles[currentRiddleIndex[playerID]].riddleText;
-                player1HintTextUI.text = "";
-            }
-            else if (playerID == 2)
+                riddleText = "Buried beneath the earth, I lie in wait with a deadly surprise,\nStep too close, and I’ll turn peace into chaos before your eyes.",
+                answerObject = GameObject.Find("land_mine")  // Replace with the actual name in your scene
+            };
+            allRiddles[7] = new Riddle
             {
-                player2RiddleTextUI.text = riddles[currentRiddleIndex[playerID]].riddleText;
-                player2HintTextUI.text = "";
+                riddleText = "Twisting through the ground, I carry things you don’t want to see,\nMarked with warnings, for I bring not water, but waste and danger beneath.",
+                answerObject = GameObject.Find("Hazard Pipes")  // Replace with the actual name in your scene
+            };
+
+            InitializeRiddles();
+        }
+
+
+
+    public void InitializeRiddles()
+    {
+        assigned_riddles = new Riddle[4];
+
+        // Assign the first 4 riddles to Player 1 and the next 4 to Player 2
+        if (playerId == 1)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                assigned_riddles[i] = allRiddles[i];
             }
-            attemptCount[playerID] = 0;
+        }
+        else if (playerId == 2)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                assigned_riddles[i] = allRiddles[i + 4];
+            }
+        }
+
+        // Display the first riddle for this player
+        DisplayRiddle(assigned_riddles[currentRiddleIndex]);
+    }
+
+    // Display the current riddle for the player
+    public void DisplayRiddle(Riddle riddle)
+    {
+        current_riddle = riddle;
+        riddleText.text = current_riddle.riddleText;
+    }
+
+    // This requires the player to point to the gameobject
+
+    public void CmdCheckAnswer(GameObject pointedObject)
+    {
+        if (pointedObject == current_riddle.answerObject)
+        {
+            // Notify GameManager of correct answer
+            gameManager.CorrectRiddleAnswered(playerId);
+
+            // Move to the next riddle if available
+            if (currentRiddleIndex < assigned_riddles.Length - 1)
+            {
+                currentRiddleIndex++;
+                DisplayRiddle(assigned_riddles[currentRiddleIndex]);
+            }
+            else
+            {
+                Debug.Log("All riddles have been completed by Player " + playerId);
+            }
         }
         else
         {
-            // All riddles answered by this player
-            EnvironmentManager.Instance.TransformEnvironment(playerID);
+            Debug.Log("Nothing discernable has been found");
         }
-    }
-    public void CheckAnswer(GameObject playerPointedObject, int playerID)
-    {
-        if (IsCorrect(playerPointedObject, riddles[currentRiddleIndex[playerID]].answerObject))
-        {
-            // Correct Answer
-            GameManager.Instance.Update_game(playerID);
-            currentRiddleIndex[playerID]++;
-            ShowRiddle(playerID);
-        }
-        else
-        {
-            // Incorrect Answer
-            attemptCount[playerID]++;
-            if (attemptCount[playerID] >= 3)
-            {
-                GenerateHint(playerID);
-            }
-        }
-    }
-    
-    bool IsCorrect(GameObject playerPointedObject, GameObject correctAnswerObject)
-    {
-        return playerPointedObject.CompareTag(correctAnswerObject.tag);
     }
 
-    void GenerateHint(int playerID)
+    public class TextMeshProUGUI
     {
-        if (playerID == 1)
-        {
-            player1HintTextUI.text = "Hint: " + riddles[currentRiddleIndex[playerID]].hint;
-        }
-        else if (playerID == 2)
-        {
-            player2HintTextUI.text = "Hint: " + riddles[currentRiddleIndex[playerID]].hint;
-        }
     }
 }
-
-
-
-    // Update is called once per frame
-    
