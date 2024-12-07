@@ -22,6 +22,14 @@ public class RiddleManager : MonoBehaviour
     public class Riddle
     {
         public string riddleText;
+        public GameObject dead_tree;
+        public GameObject land_mine;
+        public GameObject rusty_barrel;
+        public GameObject fallen_tree;
+        public GameObject missile_shells;
+        public GameObject tree_trunk;
+        public GameObject rubble;
+        public GameObject bio_hazard;
         public GameObject answerObject;
     }
 
@@ -106,7 +114,7 @@ public class RiddleManager : MonoBehaviour
     public void DisplayRiddle(Riddle riddle)
     {
         current_riddle = riddle;
-        riddleText.text = current_riddle.riddleText;
+        
     }
 
     // This requires the player to point to the gameobject
