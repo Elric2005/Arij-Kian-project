@@ -1343,6 +1343,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8466299809785804372, guid: c391a629979d63d4880403efe4b7d235, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466299809785804372, guid: c391a629979d63d4880403efe4b7d235, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 22.71
+      objectReference: {fileID: 0}
     - target: {fileID: 8466299810995141758, guid: c391a629979d63d4880403efe4b7d235, type: 3}
       propertyPath: m_Name
       value: fountain
