@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class RiddleManager : MonoBehaviour
 {
     // UI Elements for displaying the current riddle
-    public TextMeshProUGUI riddleText;
+    public TMP_Text riddleText;
 
     // Array of riddles for both players
     private Riddle[] allRiddles;
@@ -114,6 +115,7 @@ public class RiddleManager : MonoBehaviour
     public void DisplayRiddle(Riddle riddle)
     {
         current_riddle = riddle;
+        riddleText.text = riddle.riddleText;
         
     }
 
@@ -124,7 +126,7 @@ public class RiddleManager : MonoBehaviour
         if (pointedObject == current_riddle.answerObject)
         {
             // Notify GameManager of correct answer
-            gameManager.CorrectRiddleAnswered(playerId);
+            gameManager.CorrectRiddleAnsweredRpc(playerId);
 
             // Move to the next riddle if available
             if (currentRiddleIndex < assigned_riddles.Length - 1)
@@ -141,9 +143,5 @@ public class RiddleManager : MonoBehaviour
         {
             Debug.Log("Nothing discernable has been found");
         }
-    }
-
-    public class TextMeshProUGUI
-    {
     }
 }

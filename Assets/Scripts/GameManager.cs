@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : NetworkBehaviour
 {
     public static GameManager Instance;
    // public 
 
-    public int player1Progress = 0;
-    public int player2Progress = 0;
+    NetworkVariable<int> player1Progress = new NetworkVariable<int>(0);
+    NetworkVariable<int> player2Progress = new NetworkVariable<int>(0);
 
     public GameObject player1Prefab;
     public GameObject player2Prefab;
@@ -17,6 +18,14 @@ public class GameManager : MonoBehaviour
 
     private RiddleManager riddleManager;
 
+
+    public override void OnNetworkSpawn(){
+        player1Progress.OnValueChanged += Player1ProgressChanged;
+    }
+
+    public void Player1ProgressChanged(int oldVal, int newVal){
+        //Update fountain?
+    }
     
     public void Start()
     {
@@ -28,18 +37,22 @@ public class GameManager : MonoBehaviour
        // riddleManager.InitializeRiddles(allRiddles[3]);
     }
 
-    
-    public void CorrectRiddleAnswered(int playerID)
+    [Rpc(SendTo.Server)]
+    public void CorrectRiddleAnsweredRpc(int playerID)
     {
+        if (!IsServer) return;
+
         if (playerID == 1)
         {
-            player1Progress++;  
-            //Fountain.Instance.UpdateWaterLevel(player1Progress, riddleManager.riddles.Count, playerID);
+            player1Progress.Value++;  
         }
         else if (playerID == 2)
         {
-            player2Progress++; 
-           // Fountain.Instance.UpdateWaterLevel(player2Progress, riddleManager.riddles.Count, playerID);
+            player2Progress.Value++; 
+        }
+
+        if (player1Progress.Value == 4 && player2Progress.Value == 4) {
+            NetworkManager.Singleton.SceneManager.LoadScene("Lush Forest", UnityEngine.SceneManagement.LoadSceneMode.Single);
         }
     }
 
@@ -66,8 +79,6 @@ public class GameManager : MonoBehaviour
             Debug.LogError("Player 2 spawn point is not assigned");
         }
     }
-    // if (player1progress == 4) && (player2progress == 4) {
-    // SceneManager.LoadScene("Lush Forest");
 }    
 
 
