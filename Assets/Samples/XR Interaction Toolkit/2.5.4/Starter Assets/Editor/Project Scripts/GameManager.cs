@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public 
+   // public 
 
     public int player1Progress = 0;
     public int player2Progress = 0;
@@ -24,8 +24,8 @@ public class GameManager : MonoBehaviour
         riddleManager = FindObjectOfType<RiddleManager>();  
 
         // Show the riddles for both players
-        riddleManager.InitializeRiddles(allRiddles[0])); 
-        riddleManager.InitializeRiddles(allRiddles[3]));
+       // riddleManager.InitializeRiddles(allRiddles[0]); 
+       // riddleManager.InitializeRiddles(allRiddles[3]);
     }
 
     
@@ -34,12 +34,12 @@ public class GameManager : MonoBehaviour
         if (playerID == 1)
         {
             player1Progress++;  
-            Fountain.Instance.UpdateWaterLevel(player1Progress, riddleManager.riddles.Count, playerID);
+            //Fountain.Instance.UpdateWaterLevel(player1Progress, riddleManager.riddles.Count, playerID);
         }
         else if (playerID == 2)
         {
             player2Progress++; 
-            Fountain.Instance.UpdateWaterLevel(player2Progress, riddleManager.riddles.Count, playerID);
+           // Fountain.Instance.UpdateWaterLevel(player2Progress, riddleManager.riddles.Count, playerID);
         }
     }
 
@@ -66,12 +66,12 @@ public class GameManager : MonoBehaviour
             Debug.LogError("Player 2 spawn point is not assigned");
         }
     }
-    if (player1progress == 4) && (player2progress == 4) {
-    SceneManager.LoadScene("Lush Forest");
+    // if (player1progress == 4) && (player2progress == 4) {
+    // SceneManager.LoadScene("Lush Forest");
 }    
 
 
 
 
-}
+
 
