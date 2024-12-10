@@ -4037,7 +4037,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 2099556007}
     m_Modifications:
     - target: {fileID: 1100122875247854, guid: 7556dab0fd361024abb6427bda1eb054, type: 3}
       propertyPath: m_Name
@@ -4052,16 +4052,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4783119530053594, guid: 7556dab0fd361024abb6427bda1eb054, type: 3}
+      propertyPath: m_LocalScale.z
+      value: -0.94038695
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783119530053594, guid: 7556dab0fd361024abb6427bda1eb054, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 46.22
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 4783119530053594, guid: 7556dab0fd361024abb6427bda1eb054, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.77
+      value: 0.31915864
       objectReference: {fileID: 0}
     - target: {fileID: 4783119530053594, guid: 7556dab0fd361024abb6427bda1eb054, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -89.93
+      value: 63.739998
       objectReference: {fileID: 0}
     - target: {fileID: 4783119530053594, guid: 7556dab0fd361024abb6427bda1eb054, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6637,6 +6641,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4718202997952262284, guid: 600e30b9ed769e84292ca5c2a4f0721e, type: 3}
   m_PrefabInstance: {fileID: 4718202998214848661}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &303213040 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4783119530053594, guid: 7556dab0fd361024abb6427bda1eb054, type: 3}
+  m_PrefabInstance: {fileID: 184714405}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &305085164
 GameObject:
@@ -23838,7 +23847,7 @@ Terrain:
   m_GameObject: {fileID: 1163376823}
   m_Enabled: 1
   serializedVersion: 6
-  m_TerrainData: {fileID: 0}
+  m_TerrainData: {fileID: 15600000, guid: ca0dc48cf1847674a9d204b4af6f8d0a, type: 2}
   m_TreeDistance: 715
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
@@ -24463,7 +24472,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 180798, guid: 7f1ce0d205990a244a38657bf0571ced, type: 3}
       propertyPath: m_Name
-      value: Mus_3
+      value: Hazard Pipes
       objectReference: {fileID: 0}
     - target: {fileID: 461392, guid: 7f1ce0d205990a244a38657bf0571ced, type: 3}
       propertyPath: m_LocalPosition.x
@@ -41319,7 +41328,8 @@ Transform:
   m_LocalPosition: {x: 49.72, y: 0.45084134, z: -153.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 303213040}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2099821199
@@ -44434,7 +44444,6 @@ SceneRoots:
   - {fileID: 1623421455}
   - {fileID: 1673570787}
   - {fileID: 2099556007}
-  - {fileID: 184714405}
   - {fileID: 1423863863}
   - {fileID: 1135167200}
   - {fileID: 1450637574}
