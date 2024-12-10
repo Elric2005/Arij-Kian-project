@@ -4124,6 +4124,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cistern_big
       objectReference: {fileID: 0}
+    - target: {fileID: 1100122875247854, guid: 7556dab0fd361024abb6427bda1eb054, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4783119530053594, guid: 7556dab0fd361024abb6427bda1eb054, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -4425,9 +4429,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1623421455}
     m_Modifications:
+    - target: {fileID: 8501388613290900537, guid: 0a1b960546083cf42928e4f1a0829c28, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501388613290900539, guid: 0a1b960546083cf42928e4f1a0829c28, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501388613290900541, guid: 0a1b960546083cf42928e4f1a0829c28, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8501388613290900543, guid: 0a1b960546083cf42928e4f1a0829c28, type: 3}
       propertyPath: m_Name
       value: barrel2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501388613290900543, guid: 0a1b960546083cf42928e4f1a0829c28, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8501388613291253789, guid: 0a1b960546083cf42928e4f1a0829c28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8856,7 +8876,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 436696299}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: biohazard barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10718,6 +10738,7 @@ GameObject:
   - component: {fileID: 543692399}
   - component: {fileID: 543692398}
   - component: {fileID: 543692397}
+  - component: {fileID: 543692402}
   m_Layer: 0
   m_Name: Right Controller
   m_TagString: Untagged
@@ -11360,6 +11381,24 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -6447266317303757838, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ButtonPressPoint: 0.5
+--- !u!114 &543692402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543692395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1627c6fedcded40b994aa4dd19b56aaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pointer: {fileID: 1049736971}
+  Pointer_color: {r: 0, g: 0, b: 0, a: 0}
+  object_pointer: {r: 0, g: 0, b: 0, a: 0}
+  interactable_object:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &551571280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12789,7 +12828,7 @@ GameObject:
   - component: {fileID: 605387207}
   - component: {fileID: 605387206}
   - component: {fileID: 605387205}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WireHanging(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16855,9 +16894,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1673570787}
     m_Modifications:
+    - target: {fileID: 121076, guid: 6d63b78216191644fac480e8659cee53, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 124944, guid: 6d63b78216191644fac480e8659cee53, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 125238, guid: 6d63b78216191644fac480e8659cee53, type: 3}
       propertyPath: m_Name
       value: Log01
+      objectReference: {fileID: 0}
+    - target: {fileID: 125238, guid: 6d63b78216191644fac480e8659cee53, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 136052, guid: 6d63b78216191644fac480e8659cee53, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 144986, guid: 6d63b78216191644fac480e8659cee53, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 156296, guid: 6d63b78216191644fac480e8659cee53, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 183556, guid: 6d63b78216191644fac480e8659cee53, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 442144, guid: 6d63b78216191644fac480e8659cee53, type: 3}
       propertyPath: m_LocalPosition.y
@@ -17496,7 +17563,7 @@ GameObject:
   - component: {fileID: 869914323}
   - component: {fileID: 869914322}
   - component: {fileID: 869914321}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WireHanging(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21456,6 +21523,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: barrel_yellow_radiation_liquid
       objectReference: {fileID: 0}
+    - target: {fileID: 7197177958885158889, guid: 4f1ba8d5a86a3114c9dd9275992cff7c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7541932421947503955, guid: 4f1ba8d5a86a3114c9dd9275992cff7c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.691
@@ -23267,6 +23338,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fountain_LOD1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 572baa3f53b89eb429475e0a046dbb45, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 572baa3f53b89eb429475e0a046dbb45, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.4
@@ -24592,6 +24667,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mus_3
       objectReference: {fileID: 0}
+    - target: {fileID: 180798, guid: 7f1ce0d205990a244a38657bf0571ced, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 461392, guid: 7f1ce0d205990a244a38657bf0571ced, type: 3}
       propertyPath: m_LocalPosition.x
       value: 98.302475
@@ -24904,7 +24983,7 @@ GameObject:
   - component: {fileID: 1196680853}
   - component: {fileID: 1196680852}
   - component: {fileID: 1196680851}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WireHanging(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27190,7 +27269,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1319402505}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: rubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27458,7 +27537,7 @@ GameObject:
   - component: {fileID: 1331849596}
   - component: {fileID: 1331849595}
   - component: {fileID: 1331849594}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28506,7 +28585,7 @@ GameObject:
   - component: {fileID: 1399542158}
   - component: {fileID: 1399542157}
   - component: {fileID: 1399542156}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29076,7 +29155,7 @@ GameObject:
   - component: {fileID: 1423863863}
   - component: {fileID: 1423863862}
   - component: {fileID: 1423863861}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: dead_tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29782,7 +29861,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1450637574}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: land_mine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29879,7 +29958,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1455106300}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WireHanging(Clone) Group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30876,9 +30955,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1319402505}
     m_Modifications:
+    - target: {fileID: 1222353409541856, guid: feb11bdd0b967f54eb0e5d88798fd7b2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1278830948007620, guid: feb11bdd0b967f54eb0e5d88798fd7b2, type: 3}
       propertyPath: m_Name
       value: Rubble_Big_Sample
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278830948007620, guid: feb11bdd0b967f54eb0e5d88798fd7b2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1574302351328626, guid: feb11bdd0b967f54eb0e5d88798fd7b2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802403335016090, guid: feb11bdd0b967f54eb0e5d88798fd7b2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939460830181546, guid: feb11bdd0b967f54eb0e5d88798fd7b2, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4802584468170832, guid: feb11bdd0b967f54eb0e5d88798fd7b2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -32256,7 +32355,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1623421455}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: rusty_barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32950,7 +33049,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1673570787}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tree_trunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33610,7 +33709,7 @@ GameObject:
   - component: {fileID: 1702429886}
   - component: {fileID: 1702429885}
   - component: {fileID: 1702429884}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WireHanging(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34795,13 +34894,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7768339813441832897, guid: 2bc8012bc50be5043b249e5ecd2de503, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1787513262}
   m_SourcePrefab: {fileID: 100100000, guid: 2bc8012bc50be5043b249e5ecd2de503, type: 3}
 --- !u!4 &1787513260 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7768339813442132961, guid: 2bc8012bc50be5043b249e5ecd2de503, type: 3}
   m_PrefabInstance: {fileID: 1787513259}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1787513261 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7768339813441832897, guid: 2bc8012bc50be5043b249e5ecd2de503, type: 3}
+  m_PrefabInstance: {fileID: 1787513259}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1787513262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787513261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1627c6fedcded40b994aa4dd19b56aaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pointer: {fileID: 0}
+  Pointer_color: {r: 0, g: 0, b: 0, a: 0}
+  object_pointer: {r: 0, g: 0, b: 0, a: 0}
+  interactable_object:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1792885677
 GameObject:
   m_ObjectHideFlags: 0
@@ -41288,7 +41413,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2099556007}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: missile_shells
   m_TagString: Untagged
   m_Icon: {fileID: 0}
