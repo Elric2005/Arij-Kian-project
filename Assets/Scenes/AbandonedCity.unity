@@ -9187,6 +9187,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8501388613291253791, guid: 0a1b960546083cf42928e4f1a0829c28, type: 3}
   m_PrefabInstance: {fileID: 457376639}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &458749668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 458749670}
+  - component: {fileID: 458749669}
+  m_Layer: 0
+  m_Name: RiddleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &458749669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458749668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a6e7c3ad2304d1b8a21293e1e31953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  riddleText: {fileID: 0}
+  gameManager: {fileID: 0}
+  playerId: 0
+--- !u!4 &458749670
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458749668}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 44.11637, y: 2.8826108, z: -69.75954}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &459485165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44397,3 +44444,4 @@ SceneRoots:
   - {fileID: 1546663534}
   - {fileID: 637658458}
   - {fileID: 2001423902}
+  - {fileID: 458749670}
