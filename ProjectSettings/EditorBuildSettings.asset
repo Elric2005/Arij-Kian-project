@@ -6,11 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/ARExample.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Project Scenes/Main Menu.unity
+    guid: 234d495744cbf44098b1560d7d04c979
   - enabled: 1
     path: Assets/Scenes/AbandonedCity.unity
     guid: cedae4cbba1798a47943ef616ba29a2a
+  - enabled: 1
+    path: Assets/Project Scenes/Lush Forest.unity
+    guid: ce8005bedd058ed4c94fc415ba453c99
+  - enabled: 1
+    path: Assets/Project Scenes/Ending.unity
+    guid: 9c8a340cd561047d6a96f221b9562d7a
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 7746155df0bc2488eb99605bf4f718fd, type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: d1bbcd1afe8454e72972e991ae9b1fd9, type: 2}
