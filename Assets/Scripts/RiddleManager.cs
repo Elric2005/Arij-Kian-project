@@ -16,6 +16,8 @@ public class RiddleManager : MonoBehaviour
     // Array of riddles for both players
     private Riddle[] allRiddles;
 
+    private Camera mainCamera; // variable to hold camera, and will be matched w/
+
     // Assigned riddles for this player
     private Riddle[] assigned_riddles;
 
@@ -35,6 +37,8 @@ public class RiddleManager : MonoBehaviour
 
     private void Start()
     {
+        mainCamera = Camera.main; // assigning the variable defined earlier to the actual camera 
+       
         // Determine playerId (Host gets 1, Client gets 2)
         if (NetworkManager.Singleton.IsServer)  // If this is the host (server)
         {
@@ -159,18 +163,30 @@ public class RiddleManager : MonoBehaviour
     }
 
 
-    private void Update()
+  private void Update()
     {
-        
-        riddleCanvas.transform.position = 
+        if (mainCamera == null)
+        {
+            // if camera reference not valid
+            Debug.LogError("Main camera not found!");
+            return;
+        }
 
+        // variable holding the scale factor of distance from mainCamera
+        float distanceFromCamera = 2.0f; 
 
+        // offsets to position in top right of player-view
+        float verticalOffset = 1.5f;  //scale factor for how far up the text is
+        float horizontalOffset = 1.0f; //scale factor for how far to the right the text is
 
+        //using variables to define the riddleCanvas position
+        riddleCanvas.transform.position = mainCamera.transform.position
+                                         + (mainCamera.transform.forward * distanceFromCamera)  // Position it in front of the camera
+                                         + (mainCamera.transform.up * verticalOffset)  // Offset it upwards
+                                         + (mainCamera.transform.right * horizontalOffset); // Offset it to the right
 
-
-
-
-
+        // using LookAt method to make sure canvas always faces player
+        riddleCanvas.transform.LookAt(mainCamera.transform);
     }
 
 }
