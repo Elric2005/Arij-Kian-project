@@ -1,21 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.Netcode;
+using UnityEngine.UI;  // Import Unity Netcode for multiplayer functionality
 
 public class RiddleManager : MonoBehaviour
 {
-    // UI Elements for displaying the current riddle
-    public TMP_Text riddleText;
+    // Reference to the RiddleText GameObject (which holds the TMP_Text component)
+    public GameObject RiddleTextObject;  // Ensure this is correctly assigned in Unity Inspector
+
+   
+    [SerializeField] private TextMeshProUGUI riddleText; //have to serialize to show up in inspector
+
+   
 
     // Array of riddles for both players
     private Riddle[] allRiddles;
 
     // Assigned riddles for this player
     private Riddle[] assigned_riddles;
+
+    // Current riddle for this player
     private Riddle current_riddle;
 
-    public GameManager gameManager;
+    // Player ID, assigned dynamically based on host vs client
     public int playerId;
     private int currentRiddleIndex = 0;
 
@@ -23,22 +30,92 @@ public class RiddleManager : MonoBehaviour
     public class Riddle
     {
         public string riddleText;
-        public GameObject dead_tree;
-        public GameObject land_mine;
-        public GameObject rusty_barrel;
-        public GameObject fallen_tree;
-        public GameObject missile_shells;
-        public GameObject tree_trunk;
-        public GameObject rubble;
-        public GameObject bio_hazard;
-        public GameObject answerObject;
+        public GameObject answerObject;  // The object that is the correct answer for this riddle
     }
-
 
     private void Start()
     {
-        allRiddles = new Riddle[8];
+        // Determine playerId (Host gets 1, Client gets 2)
+        if (NetworkManager.Singleton.IsServer)  // If this is the host (server)
+        {
+            playerId = 1;  // Host is Player 1
+        }
+        else if (NetworkManager.Singleton.IsClient)  // If this is a client (non-host player)
+        {
+            playerId = 2;  // Client is Player 2
+        }
 
+        // Get the TMP_Text component from the RiddleTextObject (assigned in the Inspector)
+         riddleText = RiddleTextObject.GetComponent<TextMeshProUGUI>();
+
+        // Initialize the riddles
+        InitializeRiddles();
+    }
+
+    // Initialize riddles based on playerId (host vs client)
+    public void InitializeRiddles()
+    {
+        assigned_riddles = new Riddle[4];  // 4 riddles per player
+        allRiddles = new Riddle[8];  // 8 total riddles in the game
+
+        // Define riddles for Player 1 (host) and Player 2 (client)
+        if (playerId == 1)
+        {
+            // Assign riddles 0-3 to the host (Player 1)
+            for (int i = 0; i < 4; i++)
+            {
+                assigned_riddles[i] = allRiddles[i];
+            }
+        }
+        else if (playerId == 2)
+        {
+            // Assign riddles 4-7 to the client (Player 2)
+            for (int i = 0; i < 4; i++)
+            {
+                assigned_riddles[i] = allRiddles[i + 4];
+            }
+        }
+
+        // Display the first riddle for the player
+        DisplayRiddle(assigned_riddles[currentRiddleIndex]);
+    }
+
+    // Display the current riddle for the player
+    public void DisplayRiddle(Riddle riddle)
+    {
+        current_riddle = riddle;
+        riddleText.text = riddle.riddleText;  // Update the TMP_Text component with the riddle text
+    }
+
+    // Check if the player's answer is correct
+    public void CmdCheckAnswer(GameObject pointedObject)
+    {
+        if (pointedObject == current_riddle.answerObject)
+        {
+            // Notify the GameManager that the player answered correctly
+            GameManager.Instance.CorrectRiddleAnsweredRpc(playerId);  // Use the Singleton Instance of GameManager
+
+            // Move to the next riddle if available
+            if (currentRiddleIndex < assigned_riddles.Length - 1)
+            {
+                currentRiddleIndex++;
+                DisplayRiddle(assigned_riddles[currentRiddleIndex]);
+            }
+            else
+            {
+                Debug.Log("All riddles completed for Player " + playerId);
+            }
+        }
+        else
+        {
+            Debug.Log("Incorrect answer");
+        }
+    }
+
+    // Fill out the riddles with their respective text and answer objects
+    private void Awake()
+    {
+        // Initialize the riddles array with the text and corresponding answer objects
         allRiddles[0] = new Riddle
         {
             riddleText = "I carry the mark of danger, and my contents can bring decay,\nSealed tight to keep poison at bay, in my metal casing I lay.",
@@ -64,84 +141,20 @@ public class RiddleManager : MonoBehaviour
             riddleText = "Empty casings that once held power, now left behind after the thunder,\nSilent and cold, I am the remains of what tore the world asunder.",
             answerObject = GameObject.Find("missile_shells")
         };
-
-
         allRiddles[5] = new Riddle
         {
             riddleText = "My branches reach out in twisted silence, but my leaves are long gone,\nStanding brittle and lifeless, a ghost of the vibrant life I once shone.",
             answerObject = GameObject.Find("dead_tree")
         };
-            allRiddles[6] = new Riddle
-            {
-                riddleText = "Buried beneath the earth, I lie in wait with a deadly surprise,\nStep too close, and I’ll turn peace into chaos before your eyes.",
-                answerObject = GameObject.Find("land_mine")  // Replace with the actual name in your scene
-            };
-            allRiddles[7] = new Riddle
-            {
-                riddleText = "Twisting through the ground, I carry things you don’t want to see,\nMarked with warnings, for I bring not water, but waste and danger beneath.",
-                answerObject = GameObject.Find("Hazard Pipes")  // Replace with the actual name in your scene
-            };
-
-            InitializeRiddles();
-        }
-
-
-
-    public void InitializeRiddles()
-    {
-        assigned_riddles = new Riddle[4];
-
-        // Assign the first 4 riddles to Player 1 and the next 4 to Player 2
-        if (playerId == 1)
+        allRiddles[6] = new Riddle
         {
-            for (int i = 0; i < 4; i++)
-            {
-                assigned_riddles[i] = allRiddles[i];
-            }
-        }
-        else if (playerId == 2)
+            riddleText = "Buried beneath the earth, I lie in wait with a deadly surprise,\nStep too close, and I’ll turn peace into chaos before your eyes.",
+            answerObject = GameObject.Find("land_mine")
+        };
+        allRiddles[7] = new Riddle
         {
-            for (int i = 0; i < 4; i++)
-            {
-                assigned_riddles[i] = allRiddles[i + 4];
-            }
-        }
-
-        // Display the first riddle for this player
-        DisplayRiddle(assigned_riddles[currentRiddleIndex]);
-    }
-
-    // Display the current riddle for the player
-    public void DisplayRiddle(Riddle riddle)
-    {
-        current_riddle = riddle;
-        riddleText.text = riddle.riddleText;
-        
-    }
-
-    // This requires the player to point to the gameobject
-
-    public void CmdCheckAnswer(GameObject pointedObject)
-    {
-        if (pointedObject == current_riddle.answerObject)
-        {
-            // Notify GameManager of correct answer
-            gameManager.CorrectRiddleAnsweredRpc(playerId);
-
-            // Move to the next riddle if available
-            if (currentRiddleIndex < assigned_riddles.Length - 1)
-            {
-                currentRiddleIndex++;
-                DisplayRiddle(assigned_riddles[currentRiddleIndex]);
-            }
-            else
-            {
-                Debug.Log("All riddles have been completed by Player " + playerId);
-            }
-        }
-        else
-        {
-            Debug.Log("Nothing discernable has been found");
-        }
+            riddleText = "Twisting through the ground, I carry things you don’t want to see,\nMarked with warnings, for I bring not water, but waste and danger beneath.",
+            answerObject = GameObject.Find("Hazard Pipes")
+        };
     }
 }

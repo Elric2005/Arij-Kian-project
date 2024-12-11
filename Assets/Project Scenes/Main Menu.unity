@@ -1620,6 +1620,7 @@ GameObject:
   m_Component:
   - component: {fileID: 898844011}
   - component: {fileID: 898844009}
+  - component: {fileID: 898844012}
   - component: {fileID: 898844010}
   m_Layer: 0
   m_Name: MultiPlayerManager
@@ -1682,6 +1683,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &898844012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898844008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1546174445}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 336449490
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &929579865
 GameObject:
   m_ObjectHideFlags: 0
@@ -2571,6 +2593,21 @@ Transform:
   - {fileID: 929579866}
   m_Father: {fileID: 1138407845}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!115 &1546174445
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: NetworkObject
+  m_Namespace: Unity.Netcode
+  m_AssemblyName: Unity.Netcode.Runtime
 --- !u!1 &1606802379
 GameObject:
   m_ObjectHideFlags: 0
@@ -2821,6 +2858,10 @@ GameObject:
   - component: {fileID: 1913081952}
   - component: {fileID: 1913081951}
   - component: {fileID: 1913081950}
+  - component: {fileID: 1913081953}
+  - component: {fileID: 1913081954}
+  - component: {fileID: 1913081955}
+  - component: {fileID: 1913081956}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -2907,6 +2948,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1913081953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913081949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c84ec5c7f8b068543b1265cc68a6c1f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hostStartPosition: {x: 350, y: 0, z: -400}
+  clientStartPosition: {x: 350, y: 0, z: -400}
+--- !u!114 &1913081954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913081949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1546174445}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1740207397
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &1913081955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913081949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deb41ed304d678c43b05dafbfd29d6f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1913081956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913081949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384139ae462014582840aceb06f2c4b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1Prefab: {fileID: -6689036041284674117, guid: 31e268f604692ea4eaf1ef60fe105f97, type: 3}
+  player2Prefab: {fileID: -6689036041284674117, guid: 31e268f604692ea4eaf1ef60fe105f97, type: 3}
 --- !u!1 &2136145924
 GameObject:
   m_ObjectHideFlags: 0
