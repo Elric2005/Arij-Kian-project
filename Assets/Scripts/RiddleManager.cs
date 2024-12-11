@@ -6,9 +6,9 @@ using UnityEngine.UI;  // Import Unity Netcode for multiplayer functionality
 public class RiddleManager : MonoBehaviour
 {
     // Reference to the RiddleText GameObject (which holds the TMP_Text component)
-    public GameObject RiddleTextObject;  // Ensure this is correctly assigned in Unity Inspector
+    // public GameObject RiddleTextObject;  // Ensure this is correctly assigned in Unity Inspector
 
-   
+    public GameObject riddleCanvas;
     [SerializeField] private TextMeshProUGUI riddleText; //have to serialize to show up in inspector
 
    
@@ -23,7 +23,7 @@ public class RiddleManager : MonoBehaviour
     private Riddle current_riddle;
 
     // Player ID, assigned dynamically based on host vs client
-    public int playerId;
+    private int playerId;
     private int currentRiddleIndex = 0;
 
     [System.Serializable]
@@ -46,7 +46,7 @@ public class RiddleManager : MonoBehaviour
         }
 
         // Get the TMP_Text component from the RiddleTextObject (assigned in the Inspector)
-         riddleText = RiddleTextObject.GetComponent<TextMeshProUGUI>();
+        //  riddleText = RiddleTextObject.GetComponent<TextMeshProUGUI>();
 
         // Initialize the riddles
         InitializeRiddles();
@@ -157,4 +157,20 @@ public class RiddleManager : MonoBehaviour
             answerObject = GameObject.Find("Hazard Pipes")
         };
     }
+
+
+    private void Update()
+    {
+        
+        riddleCanvas.transform.position = 
+
+
+
+
+
+
+
+
+    }
+
 }
