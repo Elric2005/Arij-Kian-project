@@ -654,6 +654,17 @@
             "dependencyXmlURL": "https://s3.amazonaws.com/ssa.public/Dependencies-xmls/Mintegral/${VERSION}/ISMintegralAdapterDependencies.xml",
             "dependencyXmlFileName": "ISMintegralAdapterDependencies.xml",
             "versions": {
+                "4.3.34.0": {
+                "ironSourceSdkVersion": "[8.4.0, 9.0[",
+                "android": {
+                  "adapterVersion": "4.3.33",
+                  "adNetworkVersion": "16.8.91"
+                },
+                "ios": {
+                  "adapterVersion": "4.3.28.0",
+                  "adNetworkVersion": "7.7.3"
+                }
+              },
                 "4.3.33.0": {
                 "ironSourceSdkVersion": "[8.4.0, 9.0[",
                 "android": {
