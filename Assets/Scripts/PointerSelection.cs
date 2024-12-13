@@ -13,7 +13,7 @@ public class PointerSelection : MonoBehaviour
     private GameObject pointedObject;
     private Camera mainCamera;
 
-    // Reference to RiddleManager (assuming it is attached to an object in the scene)
+    
     public RiddleManager riddleManager;
 
     private void Start()
@@ -24,7 +24,7 @@ public class PointerSelection : MonoBehaviour
             pointer = GetComponent<LineRenderer>();
         }
 
-        // Optionally, find the RiddleManager in the scene if not set in Inspector
+        // find the RiddleManager in the scene if not set in Inspector
         if (riddleManager == null)
         {
             riddleManager = FindObjectOfType<RiddleManager>();
@@ -63,15 +63,14 @@ public class PointerSelection : MonoBehaviour
             // Check if the trigger button is pressed
             if (Input.GetButtonDown("Fire1"))
             {
-                Debug.Log($"Selected: {pointedObject.name}");
 
                 // Check if the player is pointing at the fountain (for the Ending Scene)
                 if (pointedObject.CompareTag("Fountain"))
                 {
-                    // Ensure that both players have completed their riddles before allowing to load the Ending Scene
+                    // Making sure both players have completed their riddles before allowing to load the Ending Scene
                     if (riddleManager != null && riddleManager.GetCompletedRiddlesForPlayer(1) == 4 && riddleManager.GetCompletedRiddlesForPlayer(2) == 4)
                     {
-                        Debug.Log("Both players have answered all riddles. Proceeding to the Ending Scene.");
+    
                         SceneLoader.Instance.LoadEndingScene();
                     }
                 }
@@ -111,7 +110,7 @@ public class PointerSelection : MonoBehaviour
         Renderer renderer = obj.GetComponent<Renderer>();
         if (renderer != null)
         {
-            // Highlight the object with a specific color (e.g., yellow)
+            // Highlight the object yellow
             renderer.material.color = Color.yellow;
         }
     }

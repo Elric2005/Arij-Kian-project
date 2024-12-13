@@ -5,8 +5,6 @@ using UnityEngine.UI;  // Import Unity Netcode for multiplayer functionality
 
 public class RiddleManager : MonoBehaviour
 {
-    // Reference to the RiddleText GameObject (which holds the TMP_Text component)
-    // public GameObject RiddleTextObject;  // Ensure this is correctly assigned in Unity Inspector
 
     public GameObject riddleCanvas;
     [SerializeField] private TextMeshProUGUI riddleText; //have to serialize to show up in inspector
@@ -16,7 +14,7 @@ public class RiddleManager : MonoBehaviour
     // Array of riddles for both players
     private Riddle[] allRiddles;
 
-    private Camera mainCamera; // variable to hold camera, and will be matched w/
+    private Camera mainCamera; 
 
     // Assigned riddles for this player
     private Riddle[] assigned_riddles;
@@ -49,8 +47,7 @@ public class RiddleManager : MonoBehaviour
             playerId = 2;  // Client is Player 2
         }
 
-        // Get the TMP_Text component from the RiddleTextObject (assigned in the Inspector)
-        //  riddleText = RiddleTextObject.GetComponent<TextMeshProUGUI>();
+
 
         // Initialize the riddles
         InitializeRiddles();
@@ -105,15 +102,9 @@ public class RiddleManager : MonoBehaviour
                 currentRiddleIndex++;
                 DisplayRiddle(assigned_riddles[currentRiddleIndex]);
             }
-            else
-            {
-                Debug.Log("All riddles completed for Player " + playerId);
-            }
+           
         }
-        else
-        {
-            Debug.Log("Incorrect answer");
-        }
+        
     }
 
     // Fill out the riddles with their respective text and answer objects
@@ -196,12 +187,7 @@ public class RiddleManager : MonoBehaviour
 
   private void Update()
     {
-        if (mainCamera == null)
-        {
-            // if camera reference not valid
-            Debug.LogError("Main camera not found!");
-            return;
-        }
+        
 
         // variable holding the scale factor of distance from mainCamera
         float distanceFromCamera = 2.0f; 
