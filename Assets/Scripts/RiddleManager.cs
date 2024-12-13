@@ -162,6 +162,37 @@ public class RiddleManager : MonoBehaviour
         };
     }
 
+    public int GetCompletedRiddlesForPlayer(int playerId) // method that has to be defined so we can use in sceneloader so we can transition to next scene 
+    {
+        int completedRiddles = 0;
+
+        // Check the assigned riddles for the player
+        if (playerId == 1)
+        {
+            // For player 1 (host)
+            for (int i = 0; i < assigned_riddles.Length; i++)
+            {
+                if (assigned_riddles[i] != null) // Check if the riddle is completed
+                {
+                    completedRiddles++;
+                }
+            }
+        }
+        else if (playerId == 2)
+        {
+            // For player 2 (client)
+            for (int i = 0; i < assigned_riddles.Length; i++)
+            {
+                if (assigned_riddles[i] != null) // Check if the riddle is completed
+                {
+                    completedRiddles++;
+                }
+            }
+        }
+
+        return completedRiddles;
+    }
+
 
   private void Update()
     {

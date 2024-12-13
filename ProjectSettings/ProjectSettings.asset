@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Macalester-Comp194
+  companyName: MacalesterComp194
   productName: SustainabilityProject
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -164,8 +164,8 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.MacalesterComp194.194Project
-    Standalone: com.Macalester-Comp194.SustainabilityProject
+    Android: com.MacalesterComp194.SustainabilityProject
+    Standalone: com.MacalesterComp194.SustainabilityProject
   buildNumber:
     Standalone: 0
     VisionOS: 0
