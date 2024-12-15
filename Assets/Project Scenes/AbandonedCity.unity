@@ -11393,12 +11393,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1627c6fedcded40b994aa4dd19b56aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pointer: {fileID: 1049736971}
-  Pointer_color: {r: 0, g: 0, b: 0, a: 0}
-  object_pointer: {r: 0, g: 0, b: 0, a: 0}
-  interactable_object:
+  pointer: {fileID: 0}
+  pointerColor: {r: 0, g: 0, b: 0, a: 0}
+  objectPointerColor: {r: 0, g: 0, b: 0, a: 0}
+  interactableObjectLayer:
     serializedVersion: 2
     m_Bits: 0
+  riddleManager: {fileID: 0}
 --- !u!1001 &551571280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17140,9 +17141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15a6e7c3ad2304d1b8a21293e1e31953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RiddleTextObject: {fileID: 0}
+  riddleCanvas: {fileID: 0}
   riddleText: {fileID: 0}
-  playerId: 0
 --- !u!4 &841904513
 Transform:
   m_ObjectHideFlags: 0
@@ -23388,6 +23388,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1140270666}
   - component: {fileID: 1140270667}
+  - component: {fileID: 1140270668}
   m_Layer: 0
   m_Name: Sun (2)
   m_TagString: Untagged
@@ -23472,6 +23473,29 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1140270668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140270665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &1144225714
 GameObject:
   m_ObjectHideFlags: 0
@@ -24143,7 +24167,7 @@ Terrain:
   m_GameObject: {fileID: 1163376823}
   m_Enabled: 1
   serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: 4b14dc727aaf8064999bed5e38ea389d, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: ca0dc48cf1847674a9d204b4af6f8d0a, type: 2}
   m_TreeDistance: 715
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
@@ -35222,12 +35246,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1627c6fedcded40b994aa4dd19b56aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pointer: {fileID: 0}
-  Pointer_color: {r: 0, g: 0, b: 0, a: 0}
-  object_pointer: {r: 0, g: 0, b: 0, a: 0}
-  interactable_object:
+  pointer: {fileID: 0}
+  pointerColor: {r: 0, g: 0, b: 0, a: 0}
+  objectPointerColor: {r: 0, g: 0, b: 0, a: 0}
+  interactableObjectLayer:
     serializedVersion: 2
     m_Bits: 0
+  riddleManager: {fileID: 0}
 --- !u!1 &1792885677
 GameObject:
   m_ObjectHideFlags: 0
