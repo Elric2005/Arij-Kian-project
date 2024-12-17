@@ -10758,7 +10758,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1049736972}
   m_Father: {fileID: 1649367699}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &543692397
@@ -11393,7 +11394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1627c6fedcded40b994aa4dd19b56aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointer: {fileID: 0}
+  pointer: {fileID: 1049736971}
   pointerColor: {r: 0, g: 0, b: 0, a: 0}
   objectPointerColor: {r: 0, g: 0, b: 0, a: 0}
   interactableObjectLayer:
@@ -21037,12 +21038,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049736970}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 45.86718, y: 4.5724134, z: -65.38234}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7508087, y: 0.5722027, z: 4.3771973}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 543692396}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1050798912
 PrefabInstance:
@@ -44956,7 +44957,6 @@ SceneRoots:
   - {fileID: 637658458}
   - {fileID: 80693444}
   - {fileID: 1016898230}
-  - {fileID: 1049736972}
   - {fileID: 1171665596}
   - {fileID: 841904513}
   - {fileID: 1276417363}
