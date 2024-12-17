@@ -38,13 +38,13 @@ public class RiddleManager : MonoBehaviour
         mainCamera = Camera.main; // assigning the variable defined earlier to the actual camera 
        
         // Determine playerId (Host gets 1, Client gets 2)
-        if (NetworkManager.Singleton.IsServer)  // If this is the host (server)
+        if (NetworkManager.Singleton.IsServer)  
         {
-            playerId = 1;  // Host is Player 1
+            playerId = 1;  // Host is player 1
         }
-        else if (NetworkManager.Singleton.IsClient)  // If this is a client (non-host player)
+        else if (NetworkManager.Singleton.IsClient) 
         {
-            playerId = 2;  // Client is Player 2
+            playerId = 2;  // Client is player 2
         }
 
 
@@ -94,7 +94,7 @@ public class RiddleManager : MonoBehaviour
         if (pointedObject == current_riddle.answerObject)
         {
             // Notify the GameManager that the player answered correctly
-            GameManager.Instance.CorrectRiddleAnsweredRpc(playerId);  // Use the Singleton Instance of GameManager
+            GameManager.Instance.CorrectRiddleAnsweredRpc(playerId);  
 
             // Move to the next riddle if available
             if (currentRiddleIndex < assigned_riddles.Length - 1)

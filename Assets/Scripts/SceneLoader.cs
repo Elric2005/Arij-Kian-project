@@ -66,7 +66,7 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(abandonedCityScene);
     }
 
-    // Method to load the Lush Forest scene only if both players have answered their riddles
+    // Loads the Lush Forest scene only if both players have answered their riddles
     public void LoadLushForestScene()
     {
         if (hostRiddleManager.GetCompletedRiddlesForPlayer(1) == 4 && clientRiddleManager.GetCompletedRiddlesForPlayer(2) == 4)
@@ -76,7 +76,7 @@ public class SceneLoader : MonoBehaviour
     
     }
 
-    // Method to load the Ending scene only if both players have pointed at the fountain
+    // Loads the Ending scene only if both players have pointed at the fountain
     public void LoadEndingScene()
     {
         if (hostPointerSelection.HasPointedAtObject(fountainObject) && clientPointerSelection.HasPointedAtObject(fountainObject))

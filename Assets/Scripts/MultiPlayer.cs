@@ -29,7 +29,7 @@ public class MultiPlayer : NetworkBehaviour
     
 
     private void Awake() {
-        // If there is an instance, and it's not me, delete myself.
+       
         if (Instance != null && Instance != this) 
         { 
             Destroy(this); 
@@ -44,9 +44,9 @@ public class MultiPlayer : NetworkBehaviour
         InitializeUnityAuthentication();
     }
 
-    /// <summary>
+    
     /// Initializes the Unity services and signs in anonymously
-    /// </summary>
+    
     private async void InitializeUnityAuthentication() {
         if (UnityServices.State != ServicesInitializationState.Initialized) {
             InitializationOptions initializationOptions = new InitializationOptions();

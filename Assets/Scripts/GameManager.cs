@@ -23,17 +23,15 @@ public class GameManager : NetworkBehaviour
     }
 
     public void Player1ProgressChanged(int oldVal, int newVal){
-        //Update fountain?
+      
     }
     
     public void Start()
     {
-        // SpawnPlayers();  
+       
         riddleManager = FindObjectOfType<RiddleManager>();  
 
-        // Show the riddles for both players
-       // riddleManager.InitializeRiddles(allRiddles[0]); 
-       // riddleManager.InitializeRiddles(allRiddles[3]);
+       
     }
 
     [Rpc(SendTo.Server)]
