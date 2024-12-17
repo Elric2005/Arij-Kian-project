@@ -1,5 +1,11 @@
 Team Name: Built and Ran
+
  Group Members: Arij and Kian
+ 
+Our project simulates a war-torn enviroment, in which two players work together to complete riddles (assigned by index to each player). 
+The answers are game objects in the enviroment. We seek to raise awareness for deforestation, radiation, and soil erosion through an interactive experience
+that places players in the middle of an enviroment similar to recent geopolitical conflicted areas. 
+ 
  After pulling and then building/running the most recent build of the project,
  you will be spawned in the first scene, where you choose to be host/client.
  After that, you and your partner will be spawned in the second scene. In it,
